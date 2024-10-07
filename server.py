@@ -14,9 +14,20 @@ def ai_backend():
         return render_template("index.html")
     else:
         text_to_analyse = request.form.get("textToAnalyze")
-        response = ed(text_to_analyse)
-        print(response)
-        return jsonify(response)
+
+        if not text_to_analyse:
+            return jsonify({
+                "error": "Invalid text! Please try again!"
+            }), 400
+        else:
+            response = ed(text_to_analyse)
+            print(response)
+            if response["dominant_emotion"] == None:
+                return jsonify({
+                    "error": "Invalid text! Please try again!"
+                }),400
+            else:
+                return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000, host="0.0.0.0")
+    app.run(debug=True, port=5001, host="0.0.0.0")
