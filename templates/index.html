@@ -13,14 +13,17 @@
         <div class="card-body">
             <h1 class="center-heading">NLP - Emotion Detection</h1> 
             <div style="padding: 25px 25px 25px 25px;">
-            <h2 class="mb-3">
-                <label class="form-label">Please enter the text to be analyzed</label>
-                <input type="textarea" class="form-control" id="textToAnalyze">
-            </h2>
+                <form action="/emotionDetector" method="post">
+                    <h2 class="mb-3">
+                        <label class="form-label">Please enter the text to be analyzed</label>
+                        <input type="textarea" class="form-control" id="textToAnalyze" name="textToAnalyze">
+                    </h2>
 
-            <div style="padding: 25px 25px 25px 25px;">
-                <button onclick="RunSentimentAnalysis()" class="btn btn-secondary">Run Sentiment Analysis</button>
-            </div>
+                    <div style="padding: 25px 25px 25px 25px;">
+                        <button type="submit" class="btn btn-secondary">Run Sentiment Analysis</button>
+                    </div>
+                </form>
+
             <div style="padding: 25px 25px 25px 25px;"></div>
             <h2 class="mb-3">
                 <label class="form-label">Result of Emotion Detection</label>
